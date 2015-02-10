@@ -12,16 +12,16 @@ wp-content directory. Copy each of the files ending in .sample to the same name
 without an extension:
 
     cp ./hosts.sample ./hosts
-    cp ./group\_vars/dbservers.sample ./group\_vars/dbservers
-    cp ./group\_vars/webservers.sample ./group\_vars/webservers
-    cp ./group\_vars/wordpress.sample ./group\_vars/wordpress
+    cp ./group_vars/dbservers.sample ./group_vars/dbservers
+    cp ./group_vars/webservers.sample ./group_vars/webservers
+    cp ./group_vars/wordpress.sample ./group_vars/wordpress
 
 and populate the variables described inside each of the renamed files:
 
     ./hosts
-    ./group\_vars/dbservers
-    ./group\_vars/webservers
-    ./group\_vars/wordpress
+    ./group_vars/dbservers
+    ./group_vars/webservers
+    ./group_vars/wordpress
 
 The variables include passwords, keys, and other information that should be kept
 secret. They have been added to the .gitignore file to prevent accidental

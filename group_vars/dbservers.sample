@@ -13,7 +13,7 @@ newurl:
 dbdump: 
 
 # name of database on remote machine (will be created)
-dbname: tim_neill
+dbname: 
 
 # database user for remote db (will be created)
 dbuser:

@@ -1,0 +1,25 @@
+---
+# variables used by the playbooks in the db group
+
+# url used on local machine (e.g) http://127.0.1.1
+# Copy this exactly and entirely from the WordPress Address line
+# in General Settings on the web admin interface
+oldurl:
+
+# url to be used on the remote machine, e.g. http://www.example.com
+newurl:
+
+# location of mysqldump on local machine to restore from
+dbdump: 
+
+# name of database on remote machine (will be created)
+dbname: tim_neill
+
+# database user for remote db (will be created)
+dbuser:
+
+# database password for wordpress MySQL user on remote machine (will be created)
+dbpassword: 
+
+# database password for root MySQL user on remote machine (will be created)
+rootdbpassword:

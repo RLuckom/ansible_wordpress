@@ -1,0 +1,17 @@
+---
+# Deploy the whole WordPress site & dependencies to remote host
+
+- name: setup database
+  hosts: dbservers
+  roles:
+    - db
+
+- name: setup Apache and PHP
+  hosts: webservers
+  roles:
+    - webserver
+
+- name: copy WordPress
+  hosts: wordpress
+  roles:
+    - wordpress

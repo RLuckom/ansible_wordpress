@@ -1,0 +1,26 @@
+---
+# Download WordPress, template the wp-config.php, and copy the local wp-content
+
+- name: include db vars
+  include_vars: group_vars/dbservers
+
+- name: include webserver vars 
+  include_vars: group_vars/webservers
+
+- name: make sure site doesn't exist
+  file: path=/var/www/{{ sitename }} state=absent
+  
+- name: make sure wordpress doesn't exist
+  file: path=/var/www/wordpress state=absent
+
+- name: download, untar wordpress, delete wp-content, move to site
+  shell: curl -L http://wordpress.org/latest.tar.gz | tar xvz && rm -r wordpress/wp-content && mv wordpress {{ sitename }} chdir=/var/www/.
+
+- name: copy archive of wp-content from local and untar
+  unarchive: src={{ wp_content_tgz }} dest=/var/www/{{ sitename }}/
+
+- name: Template the wp-config.php
+  template: src=wp-config.php.j2 dest=/var/www/{{ sitename }}/wp-config.php mode=400 owner=www-data
+
+- name: Template the .htaccess
+  template: src=.htaccess.j2 dest=/var/www/{{ sitename }}/.htaccess mode=604

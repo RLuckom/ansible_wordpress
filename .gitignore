@@ -1,0 +1,5 @@
+hosts
+test_data
+group_vars/dbservers
+group_vars/webservers
+group_vars/wordpress

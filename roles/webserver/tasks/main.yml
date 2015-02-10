@@ -1,0 +1,33 @@
+---
+# install php, apache, configure apache virtualhost
+
+- name: Install Apache, php, and php doodads
+  apt: name={{ item }} state=installed update_cache=yes cache_valid_time=3600
+  with_items:
+   - apache2
+   - php5
+   - php5-gd
+   - php5-mysql
+   - libapache2-mod-php5 
+
+- name: enable mod_rewrite
+  command: a2enmod rewrite
+
+- name: copy Apache conf
+  template: src=apache2.conf.j2 dest=/etc/apache2/apache2.conf
+  notify: 
+  - restart apache
+
+- name: turn off default site
+  command: a2dissite 000-default.conf
+
+- name: Template virtual host
+  template: src=virtualhost-template.conf.j2 dest=/etc/apache2/sites-available/{{ sitename }}.conf
+
+- name: turn on new site
+  command: a2ensite {{ sitename }}.conf
+
+- name: tell apache to listen on siteport
+  template: src=ports.conf.j2 dest=/etc/apache2/ports.conf
+  notify: 
+  - restart apache

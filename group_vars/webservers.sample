@@ -1,0 +1,8 @@
+---
+# Variables used by the playbooks in the webservers group
+
+sitename:
+
+siteport:
+
+admin_email:

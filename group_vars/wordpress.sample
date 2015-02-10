@@ -1,0 +1,21 @@
+---
+# Variables used by the playbooks in the webservers group
+
+# full path to .tar.gz file of wp-content directory to use
+wp_content_tgz: 
+
+# Database hose relative to WordPress, likely 'localhost'
+dbhost:
+
+# Whether to enable debug logging in wordpress, 'true' or 'false'
+debug:
+
+# Each of these should be a long random string.
+auth_key:
+secure_auth_key:
+logged_in_key: 
+nonce_key: 
+auth_salt:
+secure_auth_salt: 
+logged_in_salt:
+nonce_salt:

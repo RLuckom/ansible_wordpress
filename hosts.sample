@@ -1,0 +1,26 @@
+# Names of servers in each group. Most likely, all of these servers 
+# will be the same (I haven't tested with different servers yet).
+# Each named server should have a corresponding entry in ~/.ssh/config
+# which should look like this:
+# 
+# Host my_web_host
+#     HostName 192.168.1.19
+#     User root 
+#     IdentityFile ~/.ssh/id_rsa
+# 
+# the name on the first line is what you'd use below, so in this case 
+# you'd put my_web_host on the line below each of the groups [dbservers],
+# [webservers], [wordpress]. The HostName is the IP or url where your 
+# server lives, the user has to be root, and the IdentityFile has to be a
+# private key with an associated public key in the server's authorized_keys
+# file. See
+# http://askubuntu.com/questions/46424/adding-ssh-keys-to-authorized-keys
+
+[dbservers]
+# Server name
+
+[webservers]
+# Server name
+
+[wordpress]
+# Server name
